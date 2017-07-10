@@ -5,20 +5,15 @@ def substrings string, substrings
   substring_appearances = Hash.new
 
   substrings.each do |substring|
-    substring_appearances[substring] = ocurrences string, substring
+    count = 0
+    string.scan(substring) {count += 1}
+    substring_appearances[substring] = count
   end
-  
+
   return substring_appearances
 end
 
-def ocurrences string, substring
-  working_string = string.dup
-  count = 0
 
-  while working_string.include? substring
-    count += 1
-    working_string.sub!(substring, '')
-  end
-
-  return count
-end
+example_string = "THis is a Fun string full of woo."
+example_substrings = ["This", "fun", "o"]
+puts substrings example_string, example_substrings
