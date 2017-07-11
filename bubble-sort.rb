@@ -14,7 +14,7 @@ def bubble_sort_by array, &block
   while(swaps)
     swaps = false
     (array.length - 1).times do |i|
-      array[i], array[i+1], swaps = array[i+1], array[i], true if (block.call(array[i], array[i+1]) == 1)
+      array[i], array[i+1], swaps = array[i+1], array[i], true if (block.call(array[i], array[i+1]) > 0)
     end
   end
   array
